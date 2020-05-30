@@ -23,13 +23,23 @@ git clone https://github.com/ekafyi/react-web-monetization-ui
 cd react-web-monetization-ui/example
 npm install # or yarn
 npm start # or yarn start
+
+# The web app will run at http://localhost:3000
 ```
 
-## Components
+## Usage
+
+⚠️ __Important:__ To enable Web Monetization, you have to add meta tag containing your payment pointer to your React app yourself. Basic example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
+
+```html
+<meta
+  name="monetization"
+  content="$wallet.example.com/alice">
+```
 
 Currently this package consists of two components: `MonetizationStatus` and `ExclusiveContent`.
 
-### 1. `MonetizationStatus`
+### 1. MonetizationStatus
 
 Display UI based on user's Web Monetization status.
 
@@ -42,13 +52,16 @@ import { MonetizationStatus } from 'react-web-monetization-ui';
 const MyComponent = () => (
   <>
     <div>Some other content...</div>
+    
     {/* Example 1 - use default props */}
     <MonetizationStatus />
+    
     {/* Example 2 - string props */}
     <MonetizationStatus
       active='Web Monetization is active'
       inactive='Web Monetization is inactive'
     />
+    
     {/* Example 3 - element props */}
     <MonetizationStatus
       active={<strong>Web Monetization is active</strong>}
@@ -92,7 +105,7 @@ Default value of `inactive`:
 </React.Fragment>
 ```
 
-### 2. `ExclusiveContent`
+### 2. ExclusiveContent
 
 Render content only to users with Web Monetization enabled/active with optional customizable call-to-action for users without Web Monetization in one single component.
 
@@ -105,10 +118,12 @@ import { MonetizationStatus } from 'react-web-monetization-ui';
 const MyComponent = () => (
   <>
     <div>Some other content...</div>
+    
     {/* Example 1 - use default props */}
     <ExclusiveContent>
       The answer to the ultimate question of life, the universe, and everything is <strong>42</strong>.
     </ExclusiveContent>
+    
     {/* Example 2 - custom call to action */}
     <ExclusiveContent
       inactive={
