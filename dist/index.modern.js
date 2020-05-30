@@ -1,6 +1,39 @@
 import React from 'react';
 import { useMonetizationState } from 'react-web-monetization';
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -1078,28 +1111,28 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-const cssClass = 'rwmui-ms';
-const cssClassActive = 'rwmui-ms--active';
-const cssClassInactive = 'rwmui-ms--inactive';
+var cssClass = 'rwmui-ms';
+var cssClassActive = 'rwmui-ms--monetized';
+var cssClassInactive = 'rwmui-ms--not-monetized';
 
-const MonetizationStatus = ({
-  loading,
-  active,
-  inactive,
-  ...props
-}) => {
-  const monetization = useMonetizationState();
-  const cssClassMerged = `${cssClass} ${props.className || ''} ${monetization.state === 'started' ? cssClassActive : ''} ${monetization.state === 'stopped' || !monetization.state ? cssClassInactive : ''}`;
-  return /*#__PURE__*/React.createElement("div", Object.assign({
+var MonetizationStatus = function MonetizationStatus(_ref) {
+  var loading = _ref.loading,
+      active = _ref.active,
+      inactive = _ref.inactive,
+      props = _objectWithoutPropertiesLoose(_ref, ["loading", "active", "inactive"]);
+
+  var monetization = useMonetizationState();
+  var cssClassMerged = cssClass + " " + (props.className || '') + " " + (monetization.state === 'started' ? cssClassActive : '') + " " + (monetization.state === 'stopped' || !monetization.state ? cssClassInactive : '');
+  return /*#__PURE__*/React.createElement("div", _extends({
     "aria-live": "polite",
     className: cssClassMerged
   }, props), monetization.state === 'pending' && loading, monetization.state === 'started' && active, (monetization.state === 'stopped' || !monetization.state) && inactive);
 };
-const defaultActive = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+var defaultActive = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
   role: "img",
   "aria-label": "money mouth face"
 }, "\uD83E\uDD11"), ' ', "Monetization is active");
-const defaultInactive = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+var defaultInactive = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
   role: "img",
   "aria-label": "sad pensive face"
 }, "\uD83D\uDE14"), ' ', "Monetization is not active");
@@ -1114,34 +1147,34 @@ MonetizationStatus.propTypes = {
   inactive: propTypes.oneOfType([propTypes.string, propTypes.element])
 };
 
-const cssClassActive$1 = 'rwmui-ec--available';
-const cssClassInactive$1 = 'rwmui-ec--not-available';
+var cssClassActive$1 = 'rwmui-ec--monetized';
+var cssClassInactive$1 = 'rwmui-ec--not-monetized';
 
-const ExclusiveContent = ({
-  loading,
-  inactive,
-  inactiveTitle,
-  inactiveSubtitle,
-  inactiveBgColor,
-  cta,
-  children,
-  ...props
-}) => {
-  const monetization = useMonetizationState();
-  return /*#__PURE__*/React.createElement(React.Fragment, null, monetization.state === 'pending' && loading, monetization.state === 'started' && /*#__PURE__*/React.createElement("div", Object.assign({
+var ExclusiveContent = function ExclusiveContent(_ref) {
+  var loading = _ref.loading,
+      inactive = _ref.inactive,
+      inactiveTitle = _ref.inactiveTitle,
+      inactiveSubtitle = _ref.inactiveSubtitle,
+      inactiveBgColor = _ref.inactiveBgColor,
+      cta = _ref.cta,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["loading", "inactive", "inactiveTitle", "inactiveSubtitle", "inactiveBgColor", "cta", "children"]);
+
+  var monetization = useMonetizationState();
+  return /*#__PURE__*/React.createElement(React.Fragment, null, monetization.state === 'pending' && loading, monetization.state === 'started' && /*#__PURE__*/React.createElement("div", _extends({
     "aria-live": "polite",
-    className: `${cssClassActive$1} ${props.className || ''}`
+    className: cssClassActive$1 + " " + (props.className || '')
   }, props), children), (monetization.state === 'stopped' || !monetization.state) && typeof inactive === 'undefined' ? /*#__PURE__*/React.createElement(React.Fragment, null, (inactiveTitle || inactiveSubtitle || cta) && /*#__PURE__*/React.createElement("div", {
-    className: `${cssClassInactive$1} ${props.className || ''}`,
+    className: cssClassInactive$1 + " " + (props.className || ''),
     style: {
       background: inactiveBgColor,
       padding: '1rem'
     }
   }, inactiveTitle && /*#__PURE__*/React.createElement("strong", null, inactiveTitle), inactiveSubtitle && /*#__PURE__*/React.createElement("p", null, inactiveSubtitle), cta || '')) : inactive);
 };
-const inactiveTitle = '⛔️ This content is for web monetized users only';
-const inactiveSubtitle = /*#__PURE__*/React.createElement(React.Fragment, null, "Support this site and get access to", ' ', /*#__PURE__*/React.createElement("em", null, "all web monetized content everywhere on the internet"), " with strong privacy protection for USD 5 per month.");
-const cta = /*#__PURE__*/React.createElement("a", {
+var inactiveTitle = '⛔️ This content is for web monetized users only';
+var inactiveSubtitle = /*#__PURE__*/React.createElement(React.Fragment, null, "Support this site and get access to", ' ', /*#__PURE__*/React.createElement("em", null, "all web monetized content everywhere on the internet"), " with strong privacy protection for USD 5 per month.");
+var cta = /*#__PURE__*/React.createElement("a", {
   href: "https://coil.com/",
   rel: "external"
 }, "Enable with Coil");

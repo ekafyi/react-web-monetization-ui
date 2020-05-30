@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/react-web-monetization-ui/static/css/main.42cc8b22.chunk.css",
-    "main.js": "/react-web-monetization-ui/static/js/main.4e187b35.chunk.js",
-    "main.js.map": "/react-web-monetization-ui/static/js/main.4e187b35.chunk.js.map",
+    "main.js": "/react-web-monetization-ui/static/js/main.1297304e.chunk.js",
+    "main.js.map": "/react-web-monetization-ui/static/js/main.1297304e.chunk.js.map",
     "runtime-main.js": "/react-web-monetization-ui/static/js/runtime-main.54105d9a.js",
     "runtime-main.js.map": "/react-web-monetization-ui/static/js/runtime-main.54105d9a.js.map",
-    "static/js/2.d5a27235.chunk.js": "/react-web-monetization-ui/static/js/2.d5a27235.chunk.js",
-    "static/js/2.d5a27235.chunk.js.map": "/react-web-monetization-ui/static/js/2.d5a27235.chunk.js.map",
+    "static/js/2.c945b450.chunk.js": "/react-web-monetization-ui/static/js/2.c945b450.chunk.js",
+    "static/js/2.c945b450.chunk.js.map": "/react-web-monetization-ui/static/js/2.c945b450.chunk.js.map",
     "index.html": "/react-web-monetization-ui/index.html",
-    "precache-manifest.3788d3b8a30fb8e490774f29f98debf9.js": "/react-web-monetization-ui/precache-manifest.3788d3b8a30fb8e490774f29f98debf9.js",
+    "precache-manifest.18dc73045be46edcc30e97734c2e12a5.js": "/react-web-monetization-ui/precache-manifest.18dc73045be46edcc30e97734c2e12a5.js",
     "service-worker.js": "/react-web-monetization-ui/service-worker.js",
     "static/css/main.42cc8b22.chunk.css.map": "/react-web-monetization-ui/static/css/main.42cc8b22.chunk.css.map",
-    "static/js/2.d5a27235.chunk.js.LICENSE.txt": "/react-web-monetization-ui/static/js/2.d5a27235.chunk.js.LICENSE.txt",
-    "static/js/main.4e187b35.chunk.js.LICENSE.txt": "/react-web-monetization-ui/static/js/main.4e187b35.chunk.js.LICENSE.txt"
+    "static/js/2.c945b450.chunk.js.LICENSE.txt": "/react-web-monetization-ui/static/js/2.c945b450.chunk.js.LICENSE.txt",
+    "static/js/main.1297304e.chunk.js.LICENSE.txt": "/react-web-monetization-ui/static/js/main.1297304e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.54105d9a.js",
-    "static/js/2.d5a27235.chunk.js",
+    "static/js/2.c945b450.chunk.js",
     "static/css/main.42cc8b22.chunk.css",
-    "static/js/main.4e187b35.chunk.js"
+    "static/js/main.1297304e.chunk.js"
   ]
 }

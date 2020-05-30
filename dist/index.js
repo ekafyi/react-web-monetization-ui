@@ -1114,8 +1114,8 @@ if (process.env.NODE_ENV !== 'production') {
 });
 
 var cssClass = 'rwmui-ms';
-var cssClassActive = 'rwmui-ms--active';
-var cssClassInactive = 'rwmui-ms--inactive';
+var cssClassActive = 'rwmui-ms--monetized';
+var cssClassInactive = 'rwmui-ms--not-monetized';
 
 var MonetizationStatus = function MonetizationStatus(_ref) {
   var loading = _ref.loading,
@@ -1149,8 +1149,8 @@ MonetizationStatus.propTypes = {
   inactive: propTypes.oneOfType([propTypes.string, propTypes.element])
 };
 
-var cssClassActive$1 = 'rwmui-ec--available';
-var cssClassInactive$1 = 'rwmui-ec--not-available';
+var cssClassActive$1 = 'rwmui-ec--monetized';
+var cssClassInactive$1 = 'rwmui-ec--not-monetized';
 
 var ExclusiveContent = function ExclusiveContent(_ref) {
   var loading = _ref.loading,
