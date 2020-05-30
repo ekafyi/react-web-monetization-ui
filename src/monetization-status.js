@@ -10,10 +10,16 @@ const cssClass = 'rwmui-ms';
 const cssClassActive = 'rwmui-ms--monetized';
 const cssClassInactive = 'rwmui-ms--not-monetized';
 
-const MonetizationStatus = ({ loading, active, inactive, ...props }) => {
+const MonetizationStatus = ({
+  loading,
+  active,
+  inactive,
+  className,
+  ...props
+}) => {
   const monetization = useMonetizationState();
 
-  const cssClassMerged = `${cssClass} ${props.className || ''} ${
+  const cssClassMerged = `${cssClass} ${className || ''} ${
     monetization.state === 'started' ? cssClassActive : ''
   } ${
     monetization.state === 'stopped' || !monetization.state

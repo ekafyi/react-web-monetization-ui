@@ -17,6 +17,7 @@ const ExclusiveContent = ({
   inactiveBgColor,
   cta,
   children,
+  className,
   ...props
 }) => {
   const monetization = useMonetizationState();
@@ -27,7 +28,7 @@ const ExclusiveContent = ({
       {monetization.state === 'started' && (
         <div
           aria-live='polite'
-          className={`${cssClassActive} ${props.className || ''}`}
+          className={`${cssClassActive} ${className || ''}`}
           {...props}
         >
           {children}
@@ -38,7 +39,7 @@ const ExclusiveContent = ({
         <React.Fragment>
           {(inactiveTitle || inactiveSubtitle || cta) && (
             <div
-              className={`${cssClassInactive} ${props.className || ''}`}
+              className={`${cssClassInactive} ${className || ''}`}
               style={{ background: inactiveBgColor, padding: '1rem' }}
             >
               {inactiveTitle && <strong>{inactiveTitle}</strong>}
