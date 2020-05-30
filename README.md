@@ -2,7 +2,7 @@
 
 [![NPM](https://img.shields.io/npm/v/react-web-monetization-ui.svg)](https://www.npmjs.com/package/react-web-monetization-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-This package provides _quick, simple UI components_ based on existing functionalities in [react-web-monetization](https://github.com/sharafian/react-web-monetization). As such, make sure you install it as well.
+This package provides _quick, consise, customizable UI components_ based on existing functionalities in [react-web-monetization](https://github.com/sharafian/react-web-monetization). As such, make sure you install it as well.
 
 If you are creating your own custom components from react-web-monetization or need advanced functionalities, this package may not be suitable for you.
 
