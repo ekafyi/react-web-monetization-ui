@@ -113,7 +113,7 @@ Render content only to users with Web Monetization enabled/active with optional 
 
 ```jsx
 import React from 'react';
-import { MonetizationStatus } from 'react-web-monetization-ui';
+import { ExclusiveContent } from 'react-web-monetization-ui';
 
 const MyComponent = () => (
   <>
