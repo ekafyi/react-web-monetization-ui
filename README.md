@@ -41,29 +41,29 @@ To enable Web Monetization, you have to add meta tag containing your payment poi
 
 You can add the metadata in `public/index.html` in most React projects, or you can use libraries like [react-helmet](https://github.com/nfl/react-helmet). If you use libraries like Gatsby or Next, check their documentation to find the best place to add your metadata.
 
-Currently this package consists of two components: `MonetizationStatus` and `ExclusiveContent`.
+Currently this package consists of two components: `WebMonetizedStatus` and `WebMonetizedPaywall`.
 
-### 1. MonetizationStatus
+### 1. WebMonetizedStatus
 
 Display text or element based on user's Web Monetization status.
 
 #### Usage
 
-```jsx
+```js
 import React from 'react';
-import { MonetizationStatus } from 'react-web-monetization-ui';
+import { WebMonetizedStatus } from 'react-web-monetization-ui';
 
 const MyComponent = () => (
   <>    
     {/* Basic usage */}
-    <MonetizationStatus />
+    <WebMonetizedStatus />
     
     {/* Custom props */}
-    <MonetizationStatus
+    <WebMonetizedStatus
       active='Web Monetization is active'
       inactive='Web Monetization is inactive'
     />
-    <MonetizationStatus
+    <WebMonetizedStatus
       active={<strong>Web Monetization is active</strong>}
       inactive={<span>Web Monetization is not active</span>}
     />
@@ -89,75 +89,65 @@ const MyComponent = () => (
   - What to show if Web Monetization is inactive (stopped, pending, not available).
   - Default: `Web Monetization is not active`
 
-### 2. ExclusiveContent
+### 2. WebMonetizedPaywall
 
-Render content only to users with Web Monetization enabled/active with optional customizable call-to-action for users without Web Monetization in one single component.
+Render content only to users _without_ Web Monetization enabled. Either add your own content as children or make use of the optional props for a default “call to action” UI.
 
 #### Usage
 
-```jsx
+```js
+// This example uses WebMonetizedPaywall together with react-web-monetization's `IfWebMonetized` component
 import React from 'react';
-import { ExclusiveContent } from 'react-web-monetization-ui';
+import { IfWebMonetized } from 'react-web-monetization';
+import { WebMonetizedPaywall } from 'react-web-monetization-ui';
 
 const MyComponent = () => (
   <>
-    <div>Some other content...</div>
+    {/* Example 1 - basic */}
+    <WebMonetizedPaywall />
+
+    {/* Example 2 - custom props */}
+    <WebMonetizedPaywall 
+      title="Sorry, you cannot see this content"
+      body="Want to know the answer to the ultimate question of life, the universe, and everything? Enable Web Monetization now."
+    />
     
-    {/* Example 1 - use default props */}
-    <ExclusiveContent>
+    {/* Example 3 - custom content as children */}
+    <WebMonetizedPaywall>
+      With <a href='https://coil.com'>a flat rate subscription</a>, you can support this site, get exclusive content, and explore lots of other interesting Web Monetized content.
+    </WebMonetizedPaywall>
+
+    {/* This is the content displayed to web monetized users */}
+    <IfWebMonetized>
       The answer to the ultimate question of life, the universe, and everything is <strong>42</strong>.
-    </ExclusiveContent>
-    
-    {/* Example 2 - custom call to action */}
-    <ExclusiveContent
-      inactive={
-        <>
-          With <a href='https://coil.com'>a flat rate subscription</a>, you can
-          support this site; get the answer to the ultimate question of life,
-          the universe, and everything; and explore lots of other interesting
-          Web Monetized content.
-        </>
-      }
-    >
-      The answer to the ultimate question of life, the universe, and everything is <strong>42</strong>.
-    </ExclusiveContent>
+    </IfWebMonetized>
   </>
 );
 ```
 
-- Comes with CSS class names for quick styling: `rwmui-ec--monetized` and `rwmui-ec--not-monetized`.
+- Comes with CSS class name `rwmui-paywall` for quick styling.
 - By default, this component has `aria-live="polite"` attribute for accessibility, which you can override in the props.
 
 #### Props
 
 - **children**
-  - `element`
-  - The "exclusive" content shown only to users with Web Monetization
-- **loading** (optional)
-  - `string | element`
-  - What to show while checking for Web Monetization status.
-  - Default: `Loading...`
-- **active** (optional)
-  - `string | element`
-  - What to show if Web Monetization is active (running).
-- **inactive** (optional)
-  - `string | element`
-  - What to show to non web monetized users. If this prop exists, it will be rendered in place of `inactiveTitle`, `inactiveSubtitle`, and `cta`.
-- **inactiveTitle** (optional)
-  - `element`
-  - Heading title of message to non web monetized users. Will be ignored if `inactive` is supplied.
-  - Default: `⛔️ This content is for web monetized users only`
-- **inactiveSubtitle** (optional)
-  - `element`
-  - Subtitle/body message to non web monetized users. Will be ignored if `inactive` is supplied.
-  - Default: `<>Support this site and get access to <em>all web monetized content everywhere on the internet</em> with strong privacy protection for USD 5 per month.</>`
-- **inactiveBgColor** (optional)
+  - `node`
+  - Display content to non web monetized users. If this prop exists, it will be rendered instead of other props.
+- **bgColor** (optional)
   - `string`
-  - Background color of message to non web monetized users. Will be ignored if `inactive` is supplied.
+  - Background color of message to non web monetized users. Will be ignored if `children` is supplied.
   - Default: `hsla(0, 0%, 0%, 0.05)`
+- **title** (optional)
+  - `element`
+  - Heading title of message to non web monetized users. Will be ignored if `children` is supplied.
+  - Default: `⛔️ This content is available for web monetized users`
+- **body** (optional)
+  - `element`
+  - Subtitle/body message to non web monetized users. Will be ignored if `children` is supplied.
+  - Default: `<>Support this site to get access to this content and <em>all web monetized content everywhere on the internet</em> with strong privacy protection for USD 5 per month.</>`
 - **cta** (optional)
   - `element`
-  - Call-to-action link to non web monetized users. Will be ignored if `inactive` is supplied.
+  - Call-to-action link to non web monetized users. Will be ignored if `children` is supplied.
   - Default: `<a href='https://coil.com/' rel='external'>Enable with Coil</a>`
 
 ## License
