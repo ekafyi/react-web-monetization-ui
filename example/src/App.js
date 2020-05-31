@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {
-  MonetizationStatus,
+  WebMonetizedStatus,
   WebMonetizedPaywall
 } from 'react-web-monetization-ui';
 
 const App = () => {
   return (
     <>
-      <MonetizationStatus />
+      <WebMonetizedStatus />
 
       <hr />
 

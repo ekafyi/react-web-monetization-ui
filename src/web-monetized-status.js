@@ -10,7 +10,7 @@ const cssClass = 'rwmui-ms';
 const cssClassActive = 'rwmui-ms--monetized';
 const cssClassInactive = 'rwmui-ms--not-monetized';
 
-const MonetizationStatus = ({
+const WebMonetizedStatus = ({
   loading,
   active,
   inactive,
@@ -36,25 +36,27 @@ const MonetizationStatus = ({
   );
 };
 
-export default MonetizationStatus;
+export default WebMonetizedStatus;
 
 // ====
 
 const defaultActive = (
   <React.Fragment>
-    <span role='img' aria-label='dollar sign'>💲</span>{' '}
+    <span role='img' aria-label='dollar sign'>
+      💲
+    </span>{' '}
     Web Monetization is active
   </React.Fragment>
 );
 const defaultInactive = 'Web Monetization is not active';
 
-MonetizationStatus.defaultProps = {
+WebMonetizedStatus.defaultProps = {
   loading: 'Loading...',
   active: defaultActive,
   inactive: defaultInactive
 };
 
-MonetizationStatus.propTypes = {
+WebMonetizedStatus.propTypes = {
   /** What to display while loading monetization status. */
   loading: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** What to display when monetization is active. */

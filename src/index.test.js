@@ -1,8 +1,8 @@
-import { MonetizationStatus, WebMonetizedPaywall } from './';
+import { WebMonetizedStatus, WebMonetizedPaywall } from './';
 
-describe('MonetizationStatus', () => {
+describe('WebMonetizedStatus', () => {
   it('is truthy', () => {
-    expect(MonetizationStatus).toBeTruthy();
+    expect(WebMonetizedStatus).toBeTruthy();
   });
 });
 

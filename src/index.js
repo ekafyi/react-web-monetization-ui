@@ -1,5 +1,5 @@
-import MonetizationStatus from './monetization-status';
-import WebMonetizedPaywall from './exclusive-content';
+import WebMonetizedStatus from './web-monetized-status';
+import WebMonetizedPaywall from './web-monetized-paywall';
 
 // export as named exports
-export { MonetizationStatus, WebMonetizedPaywall };
+export { WebMonetizedStatus, WebMonetizedPaywall };
