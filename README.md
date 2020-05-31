@@ -97,7 +97,6 @@ Monetization is active
 Default value of `inactive`:
 
 ```jsx
-<React.Fragment>
 <span role='img' aria-label='sad pensive face'>😔</span>{' '}
 Monetization is not active
 ```
