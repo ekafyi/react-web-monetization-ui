@@ -73,7 +73,7 @@ const MyComponent = () => (
 );
 ```
 
-- Comes with CSS class names for quick styling: `rwmui-ms`, `rwmui-ms--monetized`, and `rwmui-ms--not-monetized`.
+- The outer element comes with CSS class name `rwmui-status` for quick styling as well as data attributes `data-web-monetization-status` (`0` if inactive, `1` if active) for styling or interacting with non-React JavaScript.
 - By default, this component has `aria-live="polite"` attribute for accessibility, which you can override in the props.
 
 #### Props
