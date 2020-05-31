@@ -45,7 +45,7 @@ Currently this package consists of two components: `MonetizationStatus` and `Exc
 
 ### 1. MonetizationStatus
 
-Display UI based on user's Web Monetization status.
+Display text or element based on user's Web Monetization status.
 
 #### Usage
 
@@ -54,22 +54,18 @@ import React from 'react';
 import { MonetizationStatus } from 'react-web-monetization-ui';
 
 const MyComponent = () => (
-  <>
-    <div>Some other content...</div>
-    
-    {/* Example 1 - use default props */}
+  <>    
+    {/* Basic usage */}
     <MonetizationStatus />
     
-    {/* Example 2 - string props */}
+    {/* Custom props */}
     <MonetizationStatus
       active='Web Monetization is active'
       inactive='Web Monetization is inactive'
     />
-    
-    {/* Example 3 - element props */}
     <MonetizationStatus
       active={<strong>Web Monetization is active</strong>}
-      inactive={<spam>Web Monetization is not active</spam>}
+      inactive={<span>Web Monetization is not active</span>}
     />
   </>
 );
@@ -94,19 +90,16 @@ const MyComponent = () => (
 Default value of `active`:
 
 ```jsx
-<React.Fragment>
-  <span role='img' aria-label='money mouth face'>🤑</span>{' '}
-  Monetization is active
-</React.Fragment>
+<span role='img' aria-label='money mouth face'>🤑</span>{' '}
+Monetization is active
 ```
 
 Default value of `inactive`:
 
 ```jsx
 <React.Fragment>
-  <span role='img' aria-label='sad pensive face'>😔</span>{' '}
-  Monetization is not active
-</React.Fragment>
+<span role='img' aria-label='sad pensive face'>😔</span>{' '}
+Monetization is not active
 ```
 
 ### 2. ExclusiveContent
