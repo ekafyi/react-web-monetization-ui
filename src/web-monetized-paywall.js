@@ -4,39 +4,50 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IfNotWebMonetized } from 'react-web-monetization';
+import {
+  IfNotWebMonetized,
+  useMonetizationState
+} from 'react-web-monetization';
 
 const cssClass = 'rwmui-paywall';
 
 const WebMonetizedPaywall = ({
   className,
   children,
+  loading,
   bgColor,
   title,
   body,
   cta,
   ...props
 }) => {
+  const monetization = useMonetizationState();
   const defaultStyle = { background: bgColor, padding: '1rem' };
   return (
-    <IfNotWebMonetized>
-      {children || (
-        <div
-          aria-live='polite'
-          className={`${cssClass} ${className || ''}`}
-          style={
-            typeof className === 'undefined'
-              ? defaultStyle
-              : props.style || undefined
-          }
-          {...props}
-        >
-          {title && <strong>{title}</strong>}
-          {body && <p>{body}</p>}
-          {cta || ''}
-        </div>
+    <>
+      {monetization.state === 'pending' ? (
+        loading
+      ) : (
+        <IfNotWebMonetized>
+          {children || (
+            <div
+              aria-live='polite'
+              className={`${cssClass} ${className || ''}`}
+              style={
+                typeof className === 'undefined'
+                  ? defaultStyle
+                  : props.style || undefined
+              }
+              {...props}
+            >
+              {title && <strong>{title}</strong>}
+              {body && <p>{body}</p>}
+              {cta || ''}
+            </div>
+          )}
+        </IfNotWebMonetized>
       )}
-    </IfNotWebMonetized>
+    </>
   );
 };
 
@@ -66,6 +77,7 @@ const defaultCta = (
 );
 
 WebMonetizedPaywall.defaultProps = {
+  loading: 'Loading...',
   bgColor: 'hsla(0, 0%, 0%, 0.05)',
   title: defaultTitle,
   body: defaultBody,
@@ -75,6 +87,8 @@ WebMonetizedPaywall.defaultProps = {
 WebMonetizedPaywall.propTypes = {
   /** Display content to non web monetized users. If this prop exists, it will be rendered instead of other props. */
   children: PropTypes.node,
+  /** What to display while loading monetization status. */
+  loading: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Background color of message to non web monetized users. Will be ignored if `children` is supplied. */
   bgColor: PropTypes.string,
   /** Heading title of message to non web monetized users. Will be ignored if `children` is supplied. */
