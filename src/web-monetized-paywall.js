@@ -24,7 +24,7 @@ const WebMonetizedPaywall = ({
   const monetization = useMonetizationState();
   const defaultStyle = { background: bgColor, padding: '1rem' };
   return (
-    <>
+    <React.Fragment>
       {monetization.state === 'pending' ? (
         loading
       ) : (
@@ -47,7 +47,7 @@ const WebMonetizedPaywall = ({
           )}
         </IfNotWebMonetized>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
