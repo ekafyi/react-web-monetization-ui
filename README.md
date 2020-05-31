@@ -27,15 +27,19 @@ npm start # or yarn start
 # The web app will run at http://localhost:3000
 ```
 
+[CodeSandbox Demo](https://codesandbox.io/s/react-web-monetization-ui-examples-5r1ck) (in progress)
+
 ⚠️ This is a work in progress, more live examples incoming.
 
 ## Usage
 
-To enable Web Monetization, you have to add meta tag containing your payment pointer to your React app yourself. Basic example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
+To enable Web Monetization, you have to add meta tag containing your payment pointer to your React app yourself. Example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
 
 ```html
 <meta name="monetization" content="$wallet.example.com/your-uuid-here">
 ```
+
+You can add the metadata in `public/index.html` in most React projects, or you can use libraries like [react-helmet](https://github.com/nfl/react-helmet). If you use libraries like Gatsby or Next, check their documentation to find the best place to add your metadata.
 
 Currently this package consists of two components: `MonetizationStatus` and `ExclusiveContent`.
 
