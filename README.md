@@ -83,23 +83,11 @@ const MyComponent = () => (
 - **active** (optional)
   - `string | element`
   - What to show if Web Monetization is active (running).
+  - Default: `💲 Web Monetization is active`
 - **inactive** (optional)
   - `string | element`
   - What to show if Web Monetization is inactive (stopped, pending, not available).
-
-Default value of `active`:
-
-```jsx
-<span role='img' aria-label='money mouth face'>🤑</span>{' '}
-Monetization is active
-```
-
-Default value of `inactive`:
-
-```jsx
-<span role='img' aria-label='sad pensive face'>😔</span>{' '}
-Monetization is not active
-```
+  - Default: `Web Monetization is not active`
 
 ### 2. ExclusiveContent
 
