@@ -2,9 +2,12 @@
 
 [![NPM](https://img.shields.io/npm/v/react-web-monetization-ui.svg)](https://www.npmjs.com/package/react-web-monetization-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-This package provides _quick, consise, customizable UI components_ based on existing functionalities in [react-web-monetization](https://github.com/sharafian/react-web-monetization). As such, make sure you install it as well.
+This package provides _quick customizable UI components_ for common Web Monetization needs based on existing functionalities in [react-web-monetization](https://github.com/sharafian/react-web-monetization). As such, make sure you install it as well.
 
-If you are creating your own custom components from react-web-monetization or need advanced functionalities, this package may not be suitable for you.
+- [Introductory post on DEV](https://dev.to/ekafyi/published-my-first-react-component-library-react-web-monetization-ui-55ba)
+- [CodeSandbox Demo](https://codesandbox.io/s/react-web-monetization-ui-examples-5r1ck)
+
+If you already created UI components using the react-web-monetization hook or need specific functionalities (for example passing further props with the Web Monetization state boolean value), this package may not be of use to you.
 
 ## Install
 
@@ -27,10 +30,6 @@ npm start # or yarn start
 # The web app will run at http://localhost:3000
 ```
 
-[CodeSandbox Demo](https://codesandbox.io/s/react-web-monetization-ui-examples-5r1ck) (in progress)
-
-⚠️ This is a work in progress, more live examples incoming.
-
 ## Usage
 
 To enable Web Monetization, you have to add meta tag containing your payment pointer to your React app yourself. Example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
@@ -45,7 +44,7 @@ Currently this package consists of two components: `WebMonetizedStatus` and `Web
 
 ### 1. WebMonetizedStatus
 
-Display text or element based on user's Web Monetization status.
+Display different content depending on whether user has Web Monetization enabled and running (= active) or not.
 
 #### Usage
 
@@ -91,7 +90,9 @@ const MyComponent = () => (
 
 ### 2. WebMonetizedPaywall
 
-Render content only to users _without_ Web Monetization enabled. Either add your own content as children or make use of the optional props for a default “call to action” UI.
+Display “paywall” content (eg. description and call-to-action)  users _without_ active Web Monetization. 
+
+You most likely want to pair this with react-web-monetization’s `IfWebMonetized` component (which does the opposite: render exclusive content for web monetized users). Note that you don’t need to wrap the paywall component in `IfNotWebMonetized`.
 
 #### Usage
 
