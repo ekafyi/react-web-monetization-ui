@@ -32,10 +32,13 @@ npm start # or yarn start
 
 ## Usage
 
-To enable Web Monetization, you have to add meta tag containing your payment pointer to your React app yourself. Example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
+To enable Web Monetization, you have to add meta tag containing your payment pointer to the HTML `head` of your app template. Example from [Web Monetization Quick Start Guide](https://webmonetization.org/docs/getting-started):
 
 ```html
-<meta name="monetization" content="$wallet.example.com/your-uuid-here">
+<head>
+  <!-- title, other metadata, other content... -->
+  <meta name="monetization" content="$wallet.example.com/your-uuid-here">
+</head>
 ```
 
 You can add the metadata in `public/index.html` in most React projects, or you can use libraries like [react-helmet](https://github.com/nfl/react-helmet). If you use libraries like Gatsby or Next, check their documentation to find the best place to add your metadata.
