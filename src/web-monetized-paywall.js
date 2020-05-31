@@ -17,13 +17,18 @@ const WebMonetizedPaywall = ({
   cta,
   ...props
 }) => {
+  const defaultStyle = { background: bgColor, padding: '1rem' };
   return (
     <IfNotWebMonetized>
       {children || (
         <div
           aria-live='polite'
           className={`${cssClass} ${className || ''}`}
-          style={{ background: bgColor, padding: '1rem' }}
+          style={
+            typeof className === 'undefined'
+              ? defaultStyle
+              : props.style || undefined
+          }
           {...props}
         >
           {title && <strong>{title}</strong>}
@@ -41,7 +46,7 @@ export default WebMonetizedPaywall;
 
 const defaultTitle = (
   <React.Fragment>
-    <span role='img' aria-label='no entry'>
+    <span role='img' aria-label='no entry' style={{ marginRight: 4 }}>
       ⛔️
     </span>{' '}
     This content is available for web monetized users
