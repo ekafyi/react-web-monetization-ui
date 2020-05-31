@@ -39,10 +39,17 @@ export default WebMonetizedPaywall;
 
 // = = = =
 
-const defaultTitle = '⛔️ This content is for web monetized users only';
+const defaultTitle = (
+  <React.Fragment>
+    <span role='img' aria-label='no entry'>
+      ⛔️
+    </span>{' '}
+    This content is available for web monetized users
+  </React.Fragment>
+);
 const defaultBody = (
   <React.Fragment>
-    Support this site and get access to{' '}
+    Support this site to get access to this content and{' '}
     <em>all web monetized content everywhere on the internet</em> with strong
     privacy protection for USD 5 per month.
   </React.Fragment>
@@ -62,7 +69,7 @@ WebMonetizedPaywall.defaultProps = {
 
 WebMonetizedPaywall.propTypes = {
   /** Display content to non web monetized users. If this prop exists, it will be rendered instead of other props. */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  children: PropTypes.node,
   /** Background color of message to non web monetized users. Will be ignored if `children` is supplied. */
   bgColor: PropTypes.string,
   /** Heading title of message to non web monetized users. Will be ignored if `children` is supplied. */
