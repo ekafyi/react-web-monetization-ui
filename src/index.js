@@ -1,5 +1,5 @@
 import MonetizationStatus from './monetization-status';
-import ExclusiveContent from './exclusive-content';
+import WebMonetizedPaywall from './exclusive-content';
 
 // export as named exports
-export { MonetizationStatus, ExclusiveContent };
+export { MonetizationStatus, WebMonetizedPaywall };

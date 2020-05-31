@@ -2,15 +2,8 @@ import React from 'react';
 
 import {
   MonetizationStatus,
-  ExclusiveContent
+  WebMonetizedPaywall
 } from 'react-web-monetization-ui';
-
-const textContent = (
-  <>
-    The answer to the ultimate question of life, the universe, and everything is{' '}
-    <strong>42</strong>.
-  </>
-);
 
 const App = () => {
   return (
@@ -19,22 +12,15 @@ const App = () => {
 
       <hr />
 
-      <ExclusiveContent>{textContent}</ExclusiveContent>
+      <WebMonetizedPaywall />
 
       <hr />
 
-      <ExclusiveContent
-        inactive={
-          <>
-            With <a href='https://coil.com'>a flat rate subscription</a>, you
-            can support this site; get the answer to the ultimate question of
-            life, the universe, and everything; and explore lots of other
-            interesting Web Monetized content.
-          </>
-        }
-      >
-        {textContent}
-      </ExclusiveContent>
+      <WebMonetizedPaywall>
+        With <a href='https://coil.com'>a flat rate subscription</a>, you can
+        support this site, get exclusive content, and explore lots of other
+        interesting Web Monetized content.
+      </WebMonetizedPaywall>
     </>
   );
 };

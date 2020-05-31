@@ -1,4 +1,4 @@
-import { MonetizationStatus, ExclusiveContent } from './';
+import { MonetizationStatus, WebMonetizedPaywall } from './';
 
 describe('MonetizationStatus', () => {
   it('is truthy', () => {
@@ -6,8 +6,8 @@ describe('MonetizationStatus', () => {
   });
 });
 
-describe('ExclusiveContent', () => {
+describe('WebMonetizedPaywall', () => {
   it('is truthy', () => {
-    expect(ExclusiveContent).toBeTruthy();
+    expect(WebMonetizedPaywall).toBeTruthy();
   });
 });
