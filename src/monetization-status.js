@@ -42,20 +42,11 @@ export default MonetizationStatus;
 
 const defaultActive = (
   <React.Fragment>
-    <span role='img' aria-label='money mouth face'>
-      🤑
-    </span>{' '}
-    Monetization is active
+    <span role='img' aria-label='dollar sign'>💲</span>{' '}
+    Web Monetization is active
   </React.Fragment>
 );
-const defaultInactive = (
-  <React.Fragment>
-    <span role='img' aria-label='sad pensive face'>
-      😔
-    </span>{' '}
-    Monetization is not active
-  </React.Fragment>
-);
+const defaultInactive = 'Web Monetization is not active';
 
 MonetizationStatus.defaultProps = {
   loading: 'Loading...',
