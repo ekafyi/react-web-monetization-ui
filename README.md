@@ -2,12 +2,12 @@
 
 [![NPM](https://img.shields.io/npm/v/react-web-monetization-ui.svg)](https://www.npmjs.com/package/react-web-monetization-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-This package provides _quick customizable UI components_ for common Web Monetization needs based on existing functionalities in [react-web-monetization](https://github.com/sharafian/react-web-monetization). As such, make sure you install it as well.
+This package provides _quick customizable UI components_ for implementing the [Web Monetization API](https://webmonetization.org) on your React web app/site.
 
 - [Introductory post on DEV](https://dev.to/ekafyi/published-my-first-react-component-library-react-web-monetization-ui-55ba)
 - [CodeSandbox Demo](https://codesandbox.io/s/react-web-monetization-ui-examples-5r1ck)
 
-If you already created UI components using the react-web-monetization hook or need specific functionalities (for example passing further props with the Web Monetization state boolean value), this package may not be of use to you.
+This package uses functionalities from the [react-web-monetization](https://github.com/sharafian/react-web-monetization) package, which you also need to install as a peer dependency. If you have created your UI components using the react-web-monetization hook or need specific functionalities (for example passing further props with the monetization state as boolean value), this package may not be of use to you.
 
 ## Install
 
